@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# Virtual envs
+server/.venv/
+venv/
+ENV/
+
+# Env / secrets (do NOT commit)
+server/.env
+server/.env.*
+!.env.example
+
+# Frontend build/cache (future-proof)
+web/dist/
+web/.cache/
+node_modules/
+
+# Editors/OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

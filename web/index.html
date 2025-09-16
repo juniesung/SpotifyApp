@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Spotify Web</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main>
+      <h1>Spotify Web</h1>
+      <p><a href="/health">Check /health</a></p>
+      <button id="login">Login with Spotify</button>
+      <button id="whoami">Who am I?</button>
+      <pre id="out">–</pre>
+    </main>
+    <script>
+      const out = document.getElementById('out');
+
+      document.getElementById('login').onclick = () => {
+        // Server handles redirect + code exchange
+        window.location.href = '/auth/login';
+      };
+
+      document.getElementById('whoami').onclick = async () => {
+        const r = await fetch('/api/me', { credentials: 'include' });
+        out.textContent = r.ok
+          ? JSON.stringify(await r.json(), null, 2)
+          : 'Not logged in.';
+    };
+  </script>
+  </body>
+</html>
